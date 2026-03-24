@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 207 100% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 207 100% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 207 100% 10%;
+
+    --primary: 204 100% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 207 100% 10%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 357 82% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 15% 89%;
+    --input: 210 15% 89%;
+    --ring: 204 100% 21%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 204 100% 15%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 204 100% 21%;
+    --sidebar-accent: 204 80% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 204 60% 25%;
+    --sidebar-ring: 357 82% 49%;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(204 100% 15%) 0%, hsl(204 100% 25%) 50%, hsl(207 80% 18%) 100%);
+    --card-shadow: 0 4px 24px -4px hsl(204 100% 21% / 0.08);
+    --card-shadow-hover: 0 12px 40px -8px hsl(204 100% 21% / 0.18);
+    --accent-glow: 0 0 30px hsl(357 82% 49% / 0.25);
+  }
+
+  .dark {
+    --background: 207 100% 5%;
+    --foreground: 210 20% 95%;
+    --card: 207 60% 8%;
+    --card-foreground: 210 20% 95%;
+    --popover: 207 60% 8%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 210 60% 70%;
+    --primary-foreground: 207 100% 5%;
+    --secondary: 207 40% 15%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 207 30% 15%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 357 82% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 207 30% 18%;
+    --input: 207 30% 18%;
+    --ring: 210 60% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-elevated {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-8px);
+  }
+
+  .accent-glow {
+    box-shadow: var(--accent-glow);
+  }
+
+  .input-focus {
+    @apply transition-all duration-200;
+  }
+
+  .input-focus:focus {
+    @apply ring-2 ring-ring/30 scale-[1.01];
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(204 80% 35%) 100%);
+  }
+
+  .skeleton-shimmer {
+    @apply animate-pulse bg-muted rounded;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "joe-datastrike",
+  "version": "1.0.0",
+  "description": "TODO BALEROS - Catálogo de Rodamientos Industriales",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../bearings-polished-main && npm install && npm run build",
+    "start": "node backend/server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

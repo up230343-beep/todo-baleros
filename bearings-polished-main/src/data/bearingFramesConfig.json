@@ -1,0 +1,148 @@
+{
+  "deep-groove": {
+    "frameCount": 6,
+    "frames": [
+      "/bearings-frames/deep-groove/frame-1.png",
+      "/bearings-frames/deep-groove/frame-2.png",
+      "/bearings-frames/deep-groove/frame-3.png",
+      "/bearings-frames/deep-groove/frame-4.png",
+      "/bearings-frames/deep-groove/frame-5.png",
+      "/bearings-frames/deep-groove/frame-6.png"
+    ]
+  },
+  "centering": {
+    "frameCount": 6,
+    "frames": [
+      "/bearings-frames/centering/frame-1.png",
+      "/bearings-frames/centering/frame-2.png",
+      "/bearings-frames/centering/frame-3.png",
+      "/bearings-frames/centering/frame-4.png",
+      "/bearings-frames/centering/frame-5.png",
+      "/bearings-frames/centering/frame-6.png"
+    ]
+  },
+  "self-aligning": {
+    "frameCount": 9,
+    "frames": [
+      "/bearings-frames/self-aligning/frame-1.png",
+      "/bearings-frames/self-aligning/frame-2.png",
+      "/bearings-frames/self-aligning/frame-3.png",
+      "/bearings-frames/self-aligning/frame-4.png",
+      "/bearings-frames/self-aligning/frame-5.png",
+      "/bearings-frames/self-aligning/frame-6.png",
+      "/bearings-frames/self-aligning/frame-7.png",
+      "/bearings-frames/self-aligning/frame-8.png",
+      "/bearings-frames/self-aligning/frame-9.png"
+    ]
+  },
+  "cylindrical-roller": {
+    "frameCount": 6,
+    "frames": [
+      "/bearings-frames/cylindrical-roller/frame-1.png",
+      "/bearings-frames/cylindrical-roller/frame-2.png",
+      "/bearings-frames/cylindrical-roller/frame-3.png",
+      "/bearings-frames/cylindrical-roller/frame-4.png",
+      "/bearings-frames/cylindrical-roller/frame-5.png",
+      "/bearings-frames/cylindrical-roller/frame-6.png"
+    ]
+  },
+  "spherical-roller": {
+    "frameCount": 9,
+    "frames": [
+      "/bearings-frames/spherical-roller/frame-1.png",
+      "/bearings-frames/spherical-roller/frame-2.png",
+      "/bearings-frames/spherical-roller/frame-3.png",
+      "/bearings-frames/spherical-roller/frame-4.png",
+      "/bearings-frames/spherical-roller/frame-5.png",
+      "/bearings-frames/spherical-roller/frame-6.png",
+      "/bearings-frames/spherical-roller/frame-7.png",
+      "/bearings-frames/spherical-roller/frame-8.png",
+      "/bearings-frames/spherical-roller/frame-9.png"
+    ]
+  },
+  "angular-contact": {
+    "frameCount": 6,
+    "frames": [
+      "/bearings-frames/angular-contact/frame-1.png",
+      "/bearings-frames/angular-contact/frame-2.png",
+      "/bearings-frames/angular-contact/frame-3.png",
+      "/bearings-frames/angular-contact/frame-4.png",
+      "/bearings-frames/angular-contact/frame-5.png",
+      "/bearings-frames/angular-contact/frame-6.png"
+    ]
+  },
+  "four-point": {
+    "frameCount": 3,
+    "frames": [
+      "/bearings-frames/four-point/frame-1.png",
+      "/bearings-frames/four-point/frame-2.png",
+      "/bearings-frames/four-point/frame-3.png"
+    ]
+  },
+  "tapered-roller": {
+    "frameCount": 9,
+    "frames": [
+      "/bearings-frames/tapered-roller/frame-1.png",
+      "/bearings-frames/tapered-roller/frame-2.png",
+      "/bearings-frames/tapered-roller/frame-3.png",
+      "/bearings-frames/tapered-roller/frame-4.png",
+      "/bearings-frames/tapered-roller/frame-5.png",
+      "/bearings-frames/tapered-roller/frame-6.png",
+      "/bearings-frames/tapered-roller/frame-7.png",
+      "/bearings-frames/tapered-roller/frame-8.png",
+      "/bearings-frames/tapered-roller/frame-9.png"
+    ]
+  },
+  "thrust-roller": {
+    "frameCount": 9,
+    "frames": [
+      "/bearings-frames/thrust-roller/frame-1.png",
+      "/bearings-frames/thrust-roller/frame-2.png",
+      "/bearings-frames/thrust-roller/frame-3.png",
+      "/bearings-frames/thrust-roller/frame-4.png",
+      "/bearings-frames/thrust-roller/frame-5.png",
+      "/bearings-frames/thrust-roller/frame-6.png",
+      "/bearings-frames/thrust-roller/frame-7.png",
+      "/bearings-frames/thrust-roller/frame-8.png",
+      "/bearings-frames/thrust-roller/frame-9.png"
+    ]
+  },
+  "wheel-bearing": {
+    "frameCount": 8,
+    "frames": [
+      "/bearings-frames/wheel-bearing/frame-1.png",
+      "/bearings-frames/wheel-bearing/frame-2.png",
+      "/bearings-frames/wheel-bearing/frame-3.png",
+      "/bearings-frames/wheel-bearing/frame-4.png",
+      "/bearings-frames/wheel-bearing/frame-5.png",
+      "/bearings-frames/wheel-bearing/frame-6.png",
+      "/bearings-frames/wheel-bearing/frame-7.png",
+      "/bearings-frames/wheel-bearing/frame-8.png"
+    ]
+  },
+  "micro-thrust": {
+    "frameCount": 6,
+    "frames": [
+      "/bearings-frames/micro-thrust/frame-1.png",
+      "/bearings-frames/micro-thrust/frame-2.png",
+      "/bearings-frames/micro-thrust/frame-3.png",
+      "/bearings-frames/micro-thrust/frame-4.png",
+      "/bearings-frames/micro-thrust/frame-5.png",
+      "/bearings-frames/micro-thrust/frame-6.png"
+    ]
+  },
+  "outer-spherical": {
+    "frameCount": 9,
+    "frames": [
+      "/bearings-frames/outer-spherical/frame-1.png",
+      "/bearings-frames/outer-spherical/frame-2.png",
+      "/bearings-frames/outer-spherical/frame-3.png",
+      "/bearings-frames/outer-spherical/frame-4.png",
+      "/bearings-frames/outer-spherical/frame-5.png",
+      "/bearings-frames/outer-spherical/frame-6.png",
+      "/bearings-frames/outer-spherical/frame-7.png",
+      "/bearings-frames/outer-spherical/frame-8.png",
+      "/bearings-frames/outer-spherical/frame-9.png"
+    ]
+  }
+}
