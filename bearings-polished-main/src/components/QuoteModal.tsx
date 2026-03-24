@@ -61,16 +61,16 @@ export default function QuoteModal({ bearings, open, onClose, categoryId }: Quot
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="max-w-5xl p-0 overflow-hidden rounded-[2rem] border-none shadow-2xl bg-white gap-0">
-        
+      <DialogContent className="max-w-5xl p-0 overflow-y-auto max-h-[95vh] rounded-[2rem] border-none shadow-2xl bg-white gap-0">
+
         <DialogClose className="absolute right-6 top-6 z-50 rounded-full bg-black/5 p-2 text-gray-500 hover:bg-black/10 hover:text-black transition-colors focus:outline-none">
           <X size={20} />
         </DialogClose>
 
-        <div className="flex flex-col md:flex-row w-full h-full min-h-[600px]">
-          
-          {/* LADO IZQUIERDO: Dinámico según si es 1 o varios baleros */}
-          <div className="relative w-full md:w-1/2 bg-[#f5f5f7] p-8 md:p-12 flex flex-col items-center justify-center border-r border-gray-200/50">
+        <div className="flex flex-col md:flex-row w-full md:min-h-[600px]">
+
+          {/* LADO IZQUIERDO: oculto en móvil */}
+          <div className="relative hidden md:flex w-full md:w-1/2 bg-[#f5f5f7] p-8 md:p-12 flex-col items-center justify-center border-r border-gray-200/50">
              
              {isMulti ? (
                // --- VISTA MÚLTIPLE (Lista de Carrito) ---
@@ -128,7 +128,7 @@ export default function QuoteModal({ bearings, open, onClose, categoryId }: Quot
           </div>
 
           {/* LADO DERECHO: Especificaciones o Formulario */}
-          <div className="relative w-full md:w-1/2 bg-white p-8 md:p-12 flex flex-col justify-between overflow-y-auto max-h-[80vh] md:max-h-none">
+          <div className="relative w-full md:w-1/2 bg-white p-8 md:p-12 flex flex-col justify-between">
             
             <AnimatePresence mode="wait">
               
@@ -152,7 +152,7 @@ export default function QuoteModal({ bearings, open, onClose, categoryId }: Quot
                         <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" required />
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <Label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Correo *</Label>
                           <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" required />
