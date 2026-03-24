@@ -21,7 +21,7 @@ const frontendDist = path.join(__dirname, '../bearings-polished-main/dist');
 app.use(express.static(frontendDist));
 
 // Catch-all: devolver index.html para React Router
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
