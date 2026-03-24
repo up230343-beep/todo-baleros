@@ -34,8 +34,8 @@ export default function Index() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [baleroSeleccionado, setBaleroSeleccionado] = useState<any>(null);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [quoteBalero, setQuoteBalero] = useState<any>(null);
 
   const { data: searchResults, isLoading } = useQuery({
     queryKey: ['buscarBaleros', searchTerm],
@@ -338,7 +338,11 @@ export default function Index() {
             <p className="text-green-600 text-xs font-bold mt-1">✓ Disponible en Stock</p>
           </div>
           <button 
-            onClick={() => setIsQuoteOpen(true)}
+            onClick={() => {
+                setQuoteBalero(baleroSeleccionado);
+                setBaleroSeleccionado(null);
+                setIsQuoteOpen(true);
+              }}
             className="w-full sm:w-auto bg-[#1e2b4d] hover:bg-[#151f38] text-white px-10 py-4 font-bold uppercase tracking-widest text-[11px] transition-all flex items-center justify-center gap-3 active:scale-95"
           >
             Solicitar Cotización <ChevronRight size={14} />
@@ -350,12 +354,12 @@ export default function Index() {
   )}
 </AnimatePresence>
 
-      {baleroSeleccionado && (
+      {quoteBalero && (
         <QuoteModal
-          bearings={[baleroSeleccionado]}
+          bearings={[quoteBalero]}
           open={isQuoteOpen}
-          onClose={() => setIsQuoteOpen(false)}
-          categoryId={baleroSeleccionado.category}
+          onClose={() => { setIsQuoteOpen(false); setQuoteBalero(null); }}
+          categoryId={quoteBalero.category}
         />
       )}
     </div>

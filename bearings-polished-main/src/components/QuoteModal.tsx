@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import type { Bearing } from "@/data/bearings";
 import { toast } from "sonner";
 import { X, Send, CheckCircle2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import BearingDisassembly from "@/components/BearingDisassembly";
 
 interface QuoteModalProps {
@@ -19,19 +19,13 @@ interface QuoteModalProps {
 
 export default function QuoteModal({ bearings, open, onClose, categoryId }: QuoteModalProps) {
   const isMulti = bearings.length > 1;
-  // Si es múltiple, saltamos directo al formulario. Si es uno, mostramos detalle primero.
-  const [step, setStep] = useState<"detail" | "form">("detail");
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
-  // Siempre abre directo al formulario (la ficha ya se vio antes)
   useEffect(() => {
-    if (open) setStep("form");
+    if (!open) setForm({ name: "", email: "", phone: "", message: "" });
   }, [open]);
 
-  const handleClose = () => {
-    setForm({ name: "", email: "", phone: "", message: "" });
-    onClose();
-  };
+  const handleClose = () => onClose();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,71 +121,52 @@ export default function QuoteModal({ bearings, open, onClose, categoryId }: Quot
              )}
           </div>
 
-          {/* LADO DERECHO: Especificaciones o Formulario */}
+          {/* LADO DERECHO: Formulario */}
           <div className="relative w-full md:w-1/2 bg-white p-8 md:p-12 flex flex-col justify-between">
-            
-            <AnimatePresence mode="wait">
-              
-              {/* FORMULARIO DE CONTACTO */}
-              {step === "form" && (
-                <motion.div key="form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="flex flex-col h-full">
-                  <div className="mb-8">
-                    <h2 className="text-3xl font-black tracking-tighter text-[#1d1d1f]">
-                      Datos de Contacto
-                    </h2>
-                    <p className="text-sm text-[#86868b] mt-1">
-                      Te enviaremos disponibilidad y precios en minutos.
-                    </p>
+            <div className="mb-8">
+              <h2 className="text-3xl font-black tracking-tighter text-[#1d1d1f]">
+                Datos de Contacto
+              </h2>
+              <p className="text-sm text-[#86868b] mt-1">
+                Te enviaremos disponibilidad y precios en minutos.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col justify-between">
+              <div className="space-y-4">
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Nombre Completo / Empresa *</Label>
+                  <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white font-semibold" required />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Correo *</Label>
+                    <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white font-semibold" required />
                   </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="phone" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Teléfono</Label>
+                    <Input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white font-semibold" />
+                  </div>
+                </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      
-                      <div className="space-y-1.5">
-                        <Label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Nombre Completo / Empresa *</Label>
-                        <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" required />
-                      </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Cantidades y Detalles Extras</Label>
+                  <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="resize-none bg-gray-50 border-gray-200 focus:bg-white font-semibold" rows={3} placeholder="Ej. Necesito 10 piezas del primero y 5 del segundo..." />
+                </div>
+              </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-1.5">
-                          <Label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Correo *</Label>
-                          <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" required />
-                        </div>
-                        <div className="space-y-1.5">
-                          <Label htmlFor="phone" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Teléfono</Label>
-                          <Input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" />
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5">
-                        <Label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Cantidades y Detalles Extras</Label>
-                        <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="resize-none bg-gray-50 border-gray-200 focus:bg-white focus:ring-red-600 font-semibold" rows={3} placeholder="Ej. Necesito 10 piezas del primero y 5 del segundo..." />
-                      </div>
-                    </div>
-
-                    <button 
-                      type="submit" 
-                      className="w-full mt-6 rounded-full bg-black py-5 text-[13px] font-bold uppercase tracking-widest text-white transition-transform hover:scale-[1.02] hover:bg-gray-900 shadow-xl flex justify-center items-center gap-2"
-                    >
-                      Enviar Solicitud <Send size={16} />
-                    </button>
-                  </form>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
+              <button
+                type="submit"
+                className="w-full mt-6 rounded-full bg-black py-5 text-[13px] font-bold uppercase tracking-widest text-white transition-transform hover:scale-[1.02] hover:bg-gray-900 shadow-xl flex justify-center items-center gap-2"
+              >
+                Enviar Solicitud <Send size={16} />
+              </button>
+            </form>
           </div>
         </div>
       </DialogContent>
     </Dialog>
-  );
-}
-
-function SpecItem({ label, value }: { label: string, value: string | number }) {
-  return (
-    <div className="flex flex-col border-b border-gray-100 pb-2">
-      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">{label}</span>
-      <span className="text-lg font-semibold text-[#1d1d1f]">{value}</span>
-    </div>
   );
 }

@@ -4,7 +4,6 @@ import { Phone, Mail, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { categories } from "@/data/bearings"; 
 // 1. IMPORTAMOS TU AGENTE DE IA
-import AIAgent from "@/components/AIAgent"; 
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -221,9 +220,6 @@ export default function Layout() {
           </div>
         </div>
       </footer>
-
-      {/* --- 2. EL AGENTE DE IA (Aparecerá en todas las páginas) --- */}
-      <AIAgent />
 
     </div>
   );
