@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "TODO BALEROS - Catálogo de Rodamientos Industriales",
   "scripts": {
-    "build": "cd backend && npm install && cd ../bearings-polished-main && npm install && npm run build",
+    "build": "cd backend && npm install && cd ../bearings-polished-main && npm install --include=dev && npm run build",
     "start": "node backend/server.js"
   },
   "engines": {
