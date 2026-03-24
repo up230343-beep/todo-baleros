@@ -54,7 +54,7 @@ export default function Index() {
       {/* 1. SECCIÓN HERO (Fondo oscuro con degradado Navy) */}
       <section ref={heroRef} className="relative z-30 pt-32 pb-24 md:pt-48 md:pb-32 px-6 bg-[#0a0a0b] min-h-[85vh] flex flex-col justify-center">
         {/* Destello sutil azul marino en el fondo */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1e2b4d]/40 via-[#0a0a0b] to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full sm:w-[1000px] h-[300px] sm:h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1e2b4d]/40 via-[#0a0a0b] to-transparent pointer-events-none"></div>
 
         <motion.div
           style={{ opacity, scale, y }}

@@ -176,39 +176,62 @@ export default function CategoryPage() {
                 </div>
                 <div>
                   <p className="text-sm font-black text-gray-700 uppercase tracking-widest mb-1">No se pudo conectar al servidor</p>
-                  <p className="text-xs text-gray-400 font-medium">Verifica que el backend esté corriendo en el puerto 5000</p>
+                  <p className="text-xs text-gray-400 font-medium">Verifica la conexión con el servidor</p>
                 </div>
               </div>
             ) : filtered.length > 0 ? (
-              <table className="w-full text-sm text-left">
-                <thead>
-                  <tr className="bg-white border-b border-gray-100">
-                    <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400">Modelo SKU</th>
-                    <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">d (int)</th>
-                    <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">D (ext)</th>
-                    <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">B (ancho)</th>
-                    <th className="px-8 py-5"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-50">
-                  {filtered.map((bearing: any) => (
-                    <tr key={bearing.sku} className="group hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-5 font-black text-[#1d1d1f] text-base group-hover:text-[#1e2b4d]">{bearing.sku}</td>
-                      <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.d}mm</td>
-                      <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.D}mm</td>
-                      <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.B}mm</td>
-                      <td className="px-8 py-5 text-right">
-                        <button 
-                          onClick={(e) => handleOpenFicha(bearing, e)} 
-                          className="px-5 py-2 bg-white border border-gray-200 text-[#1e2b4d] text-[10px] font-black uppercase tracking-widest rounded-sm hover:bg-[#1e2b4d] hover:text-white transition-all"
-                        >
-                          Ver Ficha Técnica
-                        </button>
-                      </td>
+              <>
+                {/* Vista desktop: tabla */}
+                <table className="hidden md:table w-full text-sm text-left">
+                  <thead>
+                    <tr className="bg-white border-b border-gray-100">
+                      <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400">Modelo SKU</th>
+                      <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">d (int)</th>
+                      <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">D (ext)</th>
+                      <th className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-gray-400 text-right">B (ancho)</th>
+                      <th className="px-8 py-5"></th>
                     </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-50">
+                    {filtered.map((bearing: any) => (
+                      <tr key={bearing.sku} className="group hover:bg-gray-50 transition-colors">
+                        <td className="px-6 py-5 font-black text-[#1d1d1f] text-base group-hover:text-[#1e2b4d]">{bearing.sku}</td>
+                        <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.d}mm</td>
+                        <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.D}mm</td>
+                        <td className="px-6 py-5 text-right font-bold text-gray-600">{bearing.B}mm</td>
+                        <td className="px-8 py-5 text-right">
+                          <button
+                            onClick={(e) => handleOpenFicha(bearing, e)}
+                            className="px-5 py-2 bg-white border border-gray-200 text-[#1e2b4d] text-[10px] font-black uppercase tracking-widest rounded-sm hover:bg-[#1e2b4d] hover:text-white transition-all"
+                          >
+                            Ver Ficha Técnica
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                {/* Vista móvil: cards */}
+                <div className="md:hidden divide-y divide-gray-100">
+                  {filtered.map((bearing: any) => (
+                    <div key={bearing.sku} className="flex items-center justify-between px-4 py-4 bg-white hover:bg-gray-50 transition-colors">
+                      <div>
+                        <p className="font-black text-[#1d1d1f] text-base leading-none mb-1">{bearing.sku}</p>
+                        <p className="text-xs text-gray-500 font-medium">
+                          d {bearing.d}mm &middot; D {bearing.D}mm &middot; B {bearing.B}mm
+                        </p>
+                      </div>
+                      <button
+                        onClick={(e) => handleOpenFicha(bearing, e)}
+                        className="ml-3 flex-shrink-0 px-4 py-2.5 bg-[#1e2b4d] text-white text-[10px] font-black uppercase tracking-widest rounded-sm"
+                      >
+                        Ver Ficha
+                      </button>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </>
             ) : (
               <div className="flex flex-col items-center justify-center py-20 text-gray-400">
                 <PackageOpen className="w-16 h-16 mb-4 opacity-20" />

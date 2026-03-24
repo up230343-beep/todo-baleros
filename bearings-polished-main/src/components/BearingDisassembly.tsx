@@ -44,14 +44,14 @@ export default function BearingDisassembly({
   const dirRef                = useRef<1 | -1>(1);
   const timerRef              = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // ── Preload de frames ──────────────────────────────────────────
+  // ── Preload de frames solo cuando se va a animar ───────────────
   useEffect(() => {
-    if (!config) return;
+    if (!config || !playing) return;
     config.frames.forEach((src) => {
       const img = new window.Image();
       img.src = src;
     });
-  }, [config]);
+  }, [config, playing]);
 
   // ── Motor de animación ─────────────────────────────────────────
   const clearTimer = () => {
